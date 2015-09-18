@@ -1,0 +1,25 @@
+{
+  "name": "fetchapi-generators",
+  "version": "1.0.0",
+  "description": "A sample showing usage of Fetch API with ES6 generators",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Fetch",
+    "API",
+    "ES2015",
+    "ES6"
+  ],
+  "author": "Ravi",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^5.8.22",
+    "body-parser": "^1.13.3",
+    "express": "^4.13.3",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^5.2.0",
+    "gulp-express": "^0.3.5"
+  }
+}
