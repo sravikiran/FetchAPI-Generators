@@ -18,8 +18,8 @@ function runPolling(generator) {
   p.value.then(function (d) {
     if (!d.temperature) {
       runPolling(generator);
-		}
-		else {
+    }
+    else {
       console.log(d);
     }
   });
