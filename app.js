@@ -1,28 +1,28 @@
 function *pollForWeatherInfo() {
-	while (true) {
-		yield fetch('/api/currentWeather', {
-			method: 'get'
-		}).then(function (d) {
-			var json = d.json();
-			return json;
-		});
-	}
+  while (true) {
+    yield fetch('/api/currentWeather', {
+      method: 'get'
+    }).then(function (d) {
+      var json = d.json();
+      return json;
+    });
+  }
 }
 
 function runPolling(generator) {
-	if (!generator) {
-		generator = pollForWeatherInfo();
-	}
+  if (!generator) {
+    generator = pollForWeatherInfo();
+  }
 
-	var p = generator.next();
-	p.value.then(function (d) {
-		if (!d.temperature) {
-			runPolling(generator);
+  var p = generator.next();
+  p.value.then(function (d) {
+    if (!d.temperature) {
+      runPolling(generator);
 		}
 		else {
-			console.log(d);
-		}
-	});
+      console.log(d);
+    }
+  });
 }
 
 runPolling();
@@ -38,19 +38,19 @@ function *gitHubDetails(orgName) {
 }
 
 function wrapperOnFetch(url) {
-	var headers = new Headers();
-	headers.append('Accept', 'application/vnd.github.v3+json');
-	var request = new Request(url, { headers: headers });
+  var headers = new Headers();
+  headers.append('Accept', 'application/vnd.github.v3+json');
+  var request = new Request(url, { headers: headers });
 
-	return fetch(request).then(function (res) {
-		return res.json();
-	});
+  return fetch(request).then(function (res) {
+    return res.json();
+  });
 }
 
 var generator = gitHubDetails("aspnet");
 
 generator.next().value.then(function (userData) {
- document.querySelector("#avatar").src = userData.avatar_url;
+  document.querySelector("#avatar").src = userData.avatar_url;
   document.querySelector("#login").textContent = userData.login;
   document.querySelector("#login").href = userData.html_url;
   document.querySelector("#repoCount").textContent = userData.public_repos;
