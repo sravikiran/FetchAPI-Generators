@@ -1,9 +1,10 @@
 var gulp = require('gulp'),
 	babel=require('gulp-babel'),
-	express=require('gulp-express');
+	gls = require('gulp-live-server');
 
-gulp.task('server', function () {
-    return express.run(['server.js']);
+gulp.task('liveServer', function(){
+	var server = gls.new('server.js');
+	server.start();
 });
 
 gulp.task('babel', function(){
@@ -16,4 +17,4 @@ gulp.task('watch', function(){
 	return gulp.watch('app.js', ['babel']);
 });
 
-gulp.task('default', ['watch','server']);
+gulp.task('default', ['babel','watch','liveServer']);
