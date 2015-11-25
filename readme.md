@@ -1,4 +1,4 @@
-This is a ES6 Generators + Fetch API demo application. It uses babel to transpile ES6 to ES5.
+This is a ES6 Generators + Fetch API demo application. It uses Babel to transpile ES6 to ES5.
 
 To be able run the sample, you should have Node.js installed and gulp package installed globally. Once you installed these, you can run the sample by executing the following commands from a terminal currently at the same place where the code is located:
 
